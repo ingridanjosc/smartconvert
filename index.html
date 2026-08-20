@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="description"
+    content="Convert, compress and resize images privately in your browser."
+  >
+
+  <title>SmartConvert — Free Image Converter</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <a class="logo" href="#top">
+      <b>S</b>
+      Smart<span>Convert</span>
+    </a>
+
+    <nav>
+      <a href="#converter">Converter</a>
+      <a href="#how">How it works</a>
+      <a href="#privacy">Privacy</a>
+    </nav>
+
+    <a class="top-button" href="#converter">
+      Convert a file
+    </a>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+
+      <div class="tag">
+        <i></i>
+        FAST, PRIVATE, BROWSER-BASED
+      </div>
+
+      <h1>
+        Your files, fixed
+        <br>
+        <em>in seconds.</em>
+      </h1>
+
+      <p>
+        Convert, compress and resize images without uploading
+        them anywhere. Simple, fast and completely private.
+      </p>
+
+      <div class="trust">
+        <span>Free to use</span>
+        <span>No account needed</span>
+        <span>Files stay on your device</span>
+      </div>
+
+    </section>
+
+    <section class="converter" id="converter">
+
+      <div
+        class="drop"
+        id="drop"
+        tabindex="0"
+        role="button"
+      >
+
+        <input
+          id="fileInput"
+          type="file"
+          accept="image/*"
+          hidden
+        >
+
+        <div class="upload">↑</div>
+
+        <h2>Drop your image here</h2>
+
+        <p>or click to browse your device</p>
+
+        <button type="button">
+          Choose an image
+        </button>
+
+        <small>
+          JPG, PNG, WebP, GIF or BMP · Up to 25 MB
+        </small>
+
+      </div>
+
+      <div class="workspace hidden" id="workspace">
+
+        <div class="file-side">
+
+          <div class="preview">
+            <img
+              id="preview"
+              alt="Selected image preview"
+            >
+          </div>
+
+          <div class="file-info">
+
+            <div>
+              <strong id="fileName"></strong>
+              <span id="fileDetails"></span>
+            </div>
+
+            <button id="remove">
+              Remove
+            </button>
+
+          </div>
+
+        </div>
+
+        <div class="settings">
+
+          <h2>Image settings</h2>
+
+          <label>Output format</label>
+
+          <div class="formats">
+
+            <button data-format="image/jpeg">
+              JPG
+            </button>
+
+            <button data-format="image/png">
+              PNG
+            </button>
+
+            <button
+              class="active"
+              data-format="image/webp"
+            >
+              WEBP
+            </button>
+
+          </div>
+
+          <div id="qualityBox">
+
+            <div class="row">
+
+              <label for="quality">
+                Quality
+              </label>
+
+              <b id="qualityValue">
+                82%
+              </b>
+
+            </div>
+
+            <input
+              id="quality"
+              type="range"
+              min="10"
+              max="100"
+              value="82"
+            >
+
+          </div>
+
+          <div class="row">
+
+            <label>Dimensions</label>
+
+            <button class="ratio" id="ratio">
+              Ratio locked
+            </button>
+
+          </div>
+
+          <div class="dimensions">
+
+            <div>
+              <span>Width</span>
+
+              <input
+                id="width"
+                type="number"
+                min="1"
+              >
+
+              <i>px</i>
+            </div>
+
+            <b>×</b>
+
+            <div>
+              <span>Height</span>
+
+              <input
+                id="height"
+                type="number"
+                min="1"
+              >
+
+              <i>px</i>
+            </div>
+
+          </div>
+
+          <button class="convert" id="convert">
+            Convert to WEBP
+          </button>
+
+          <div class="result hidden" id="result">
+
+            <div>
+              <strong>Your image is ready</strong>
+              <span id="resultInfo"></span>
+            </div>
+
+            <a id="download">
+              Download
+            </a>
+
+          </div>
+
+          <p class="error" id="error"></p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="steps" id="how">
+
+      <article>
+        <span>01</span>
+
+        <h3>Choose your image</h3>
+
+        <p>
+          Select an image from your device.
+          Nothing is uploaded to our servers.
+        </p>
+      </article>
+
+      <article>
+        <span>02</span>
+
+        <h3>Adjust it your way</h3>
+
+        <p>
+          Pick a format, set quality and resize
+          while keeping perfect proportions.
+        </p>
+      </article>
+
+      <article>
+        <span>03</span>
+
+        <h3>Download instantly</h3>
+
+        <p>
+          Your image is ready in seconds,
+          with no watermark and no sign-up.
+        </p>
+      </article>
+
+    </section>
+
+    <section class="privacy" id="privacy">
+
+      <span>100% PRIVATE</span>
+
+      <h2>
+        Your files never leave
+        <br>
+        your device.
+      </h2>
+
+      <p>
+        Every conversion happens locally inside your browser.
+        We cannot see, store or share your images.
+      </p>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <a class="logo" href="#top">
+      <b>S</b>
+      Smart<span>Convert</span>
+    </a>
+
+    <p>
+      Simple tools for everyday files.
+    </p>
+
+    <small>
+      © 2026 SmartConvert
+    </small>
+
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
