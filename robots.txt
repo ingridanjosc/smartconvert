@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://smartconvert-files.pages.dev/sitemap-pages.xml
+Sitemap: https://smartconvert-files.pages.dev/sitemap.xml
