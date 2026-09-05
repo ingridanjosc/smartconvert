@@ -4,10 +4,18 @@ function size(n){
   if(n<1048576)return (n/1024).toFixed(1)+" KB";
   return (n/1048576).toFixed(2)+" MB";
 }
-function load(f){
+async function load(f){
   error.textContent="";
-  if(!f||!f.type.startsWith("image/")){error.textContent="Choose a compatible image.";return;}
+  const isHeic=f&&(/\.(heic|heif)$/i.test(f.name)||/heic|heif/i.test(f.type));
+  if(!f||(!f.type.startsWith("image/")&&!isHeic)){error.textContent="Choose a compatible image.";return;}
   if(f.size>26214400){error.textContent="The file is larger than 25 MB.";return;}
+  if(isHeic){
+    if(typeof heic2any!=="function"){error.textContent="The HEIC converter could not load. Check your connection and try again.";return;}
+    drop.querySelector("h2").textContent="Preparing HEIC photo…";
+    try{const converted=await heic2any({blob:f,toType:"image/jpeg",quality:.95}),blob=Array.isArray(converted)?converted[0]:converted;f=new File([blob],f.name.replace(/\.(heic|heif)$/i,".jpg"),{type:"image/jpeg"})}
+    catch{error.textContent="We couldn't read this HEIC photo. Try exporting it again from your device.";drop.querySelector("h2").textContent="Drop your image here";return}
+    drop.querySelector("h2").textContent="Drop your image here";
+  }
   file=f;if(url)URL.revokeObjectURL(url);url=URL.createObjectURL(f);preview.src=url;
   const img=new Image();
   img.onload=()=>{ow=img.naturalWidth;oh=img.naturalHeight;width.value=ow;height.value=oh;$("#fileDetails").textContent=`${size(f.size)} · ${ow} × ${oh}px`;};
